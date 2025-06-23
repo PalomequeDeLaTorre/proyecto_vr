@@ -1,10 +1,42 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Modelo de Blender</title>
-    </head>
-    <body>
-        <model-viewer src="Casa.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="neutral" poster="poster.webp" shadow-intensity="1.24">
+<head>
+  <title>Modelos de Blender</title>
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+  <style>
+  body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    height: 100vh;
+    background-color: #111;
+  }
+
+  model-viewer {
+    flex: 1;
+    height: 100vh;
+    background-color: #222;
+    border: 1px solid #333;
+  }
+
+  #ar-prompt {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 20px;
+  }
+</style>
+
+</head>
+<body>
+
+  <!-- Modelo 1 -->
+   <model-viewer src="Casa.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="neutral" poster="poster.webp" shadow-intensity="1.24">
     <div class="progress-bar hide" slot="progress-bar">
         <div class="update-bar"></div>
     </div>
@@ -15,24 +47,19 @@
         <img src="https://modelviewer.dev/shared-assets/icons/hand.png">
     </div>
 </model-viewer>
-        <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
-    </body>
-      <style>
-            body {
-                margin: 0;
-                overflow: hidden;
-            }
-            model-viewer {
-                width: 100vw;
-                height: 100vh;
-            }
-            #ar-prompt {
-                position: absolute;
-                bottom: 20px;
-                left: 50%;
-                transform: translateX(-50%);
-                color: white;
-                font-size: 20px;
-            }
-        </style>
+
+  <!-- Modelo 2 -->
+  <model-viewer src="Nave Tin Tin.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="neutral" poster="poster.webp" shadow-intensity="1">
+    <div class="progress-bar hide" slot="progress-bar">
+        <div class="update-bar"></div>
+    </div>
+    <button slot="ar-button" id="ar-button">
+        View in your space
+    </button>
+    <div id="ar-prompt">
+        <img src="https://modelviewer.dev/shared-assets/icons/hand.png">
+    </div>
+</model-viewer>
+
+</body>
 </html>
